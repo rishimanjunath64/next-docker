@@ -21,6 +21,6 @@ services:
           target: /app
           action: sync
     environment:
-      DB_URL: "mongodb+srv://rishimanjunath15_db_user:3gYTAZzoy2FEVbqK@next-docker-cluster1.uvscb0x.mongodb.net/?retryWrites=true&w=majority&appName=next-docker-cluster1"
+      DB_URL: "DB_URL"
 volumes:
   tasked: {}
