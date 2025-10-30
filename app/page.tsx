@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getTasks, deleteTask } from "@/lib/action";
+import { getTasks } from "@/lib/action";
 
 async function Home() {
   const allTasks = await getTasks();
@@ -43,15 +43,7 @@ async function Home() {
                     {task.description}
                   </p>
                 </div>
-                <div className="items-center flex justify-between px-6 pb-6">
-                  <form action={async () => {
-                    "use server";
-                    await deleteTask(task._id);
-                  }}>
-                    <button type="submit" className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded text-sm">
-                      Delete
-                    </button>
-                  </form>
+                <div className="items-center flex justify-end px-6 pb-6">
                   <span className="inline-block bg-green-200 rounded-full px-3 py-1 text-sm font-semibold text-green-700">
                     {task.status}
                   </span>
