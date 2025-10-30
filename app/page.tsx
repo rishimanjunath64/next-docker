@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getTasks } from "@/lib/action";
+import { getTasks, deleteTask } from "@/lib/action";
 
 async function Home() {
   const allTasks = await getTasks();
@@ -8,7 +8,7 @@ async function Home() {
     return (
       <main className="p-8 bg-gray-100 min-h-screen">
         <section className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-bold mb-6">Registred111 Tasks</h1>
+          <h1 className="text-4xl font-bold mb-6">Registred Tasks</h1>
           <div className="text-gray-600 text-left w-full">
             <p>No tasks found.</p>
           </div>
@@ -21,7 +21,7 @@ async function Home() {
     <main className="p-8 bg-gray-100 min-h-screen">
       <section className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center">
-          <h1 className="text-4xl font-bold mb-6">Registred111 Tasks</h1>
+          <h1 className="text-4xl font-bold mb-6">Registred Tasks</h1>
           <Link href="/create" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             Create Task
           </Link>
@@ -43,7 +43,15 @@ async function Home() {
                     {task.description}
                   </p>
                 </div>
-                <div className="items-center flex justify-end px-6 pb-6">
+                <div className="items-center flex justify-between px-6 pb-6">
+                  <form action={async () => {
+                    "use server";
+                    await deleteTask(task._id);
+                  }}>
+                    <button type="submit" className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded text-sm">
+                      Delete
+                    </button>
+                  </form>
                   <span className="inline-block bg-green-200 rounded-full px-3 py-1 text-sm font-semibold text-green-700">
                     {task.status}
                   </span>

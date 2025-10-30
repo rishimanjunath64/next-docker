@@ -6,7 +6,7 @@ function Create() {
 
     const newTask = {
       title: formData.get("title") as string,
-      Description: formData.get("description") as string,
+      description: formData.get("description") as string,
       status: formData.get("status") as string,
     };
 
