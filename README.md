@@ -34,3 +34,55 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
+Repository overview
+next-docker
+This is a Dockerized Next.js project.
+
+Run locally
+
+docker run -p 3000:3000 rishimanjunath/next-docker
+
+1️⃣ Pull the image
+
+Run this command on any machine that has Docker installed:
+
+docker pull rishimanjunath/next-docker:latest
+
+
+docker pull → downloads the image from Docker Hub
+
+rishimanjunath/next-docker:latest → your repository name and tag
+
+After it finishes, the image will be stored locally on that machine.
+
+2️⃣ Run a container from the image
+
+Once pulled, you can run it like this:
+
+docker run -p 3000:3000 rishimanjunath/next-docker:latest
+
+
+-p 3000:3000 → maps port 3000 inside the container to port 3000 on your machine
+
+Your Next.js app will now be accessible at http://localhost:3000
+
+3️⃣ Optional: Run with Docker Compose
+
+If you have the same docker-compose.yaml file on the new machine, just run:
+
+docker compose up
+
+
+Docker will automatically pull the image if it doesn’t exist locally.
+
+⚡ Summary
+
+docker pull → get image from Docker Hub
+
+docker run → start a container from that image
+
+docker compose up → start containers if you have a compose file
+
